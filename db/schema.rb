@@ -10,29 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200326210634) do
+ActiveRecord::Schema.define(version: 20200327191748) do
 
-  create_table "Commits", force: :cascade do |t|
+  create_table "Commit", force: :cascade do |t|
     t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "Posts", force: :cascade do |t|
+  create_table "Post", force: :cascade do |t|
     t.string   "title",      limit: 50, null: false
     t.string   "content",    limit: 50
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.integer  "Commits_id"
-    t.index ["Commits_id"], name: "index_Posts_on_Commits_id"
+    t.integer  "Commit_id"
+    t.index ["Commit_id"], name: "index_Post_on_Commit_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user", force: :cascade do |t|
     t.string  "name"
-    t.integer "Posts_id"
-    t.integer "Commits_id"
-    t.index ["Commits_id"], name: "index_users_on_Commits_id"
-    t.index ["Posts_id"], name: "index_users_on_Posts_id"
+    t.integer "Post_id"
+    t.integer "Commit_id"
+    t.index ["Commit_id"], name: "index_user_on_Commit_id"
+    t.index ["Post_id"], name: "index_user_on_Post_id"
   end
 
 end
