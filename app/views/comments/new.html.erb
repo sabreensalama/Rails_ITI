@@ -1,8 +1,0 @@
-
-<%= form_tag( comments_path, method: "post") do %>
-  <div class="form-group">
-  <%= text_field_tag(:content, nil,placeholder: "comment", class:"form-control") %>
-  </div>
-
-  <%= submit_tag("Create",class:"btn btn-success  btn-block") %>
-<% end %>

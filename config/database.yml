@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: blog
+  database: yla_ntlob
   username: root
   password: 1234
 # Warning: The database defined as "test" will be erased and
