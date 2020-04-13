@@ -1,8 +1,11 @@
 class GroupsController < ApplicationController
-    def  index
+
+        def index
+            @groups=Group.all
+          end
+        
     
 
-    end
     
     def  create
         #validatate data
