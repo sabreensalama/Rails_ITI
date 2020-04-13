@@ -10,32 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200412231641) do
+ActiveRecord::Schema.define(version: 20200413143951) do
 
-  create_table "Friend", force: :cascade do |t|
-    t.boolean "staus",   default: false
-    t.integer "User_id"
-    t.index ["User_id"], name: "index_Friend_on_User_id"
+  create_table "group_friends", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "Group", force: :cascade do |t|
-    t.string  "name"
-    t.integer "User_id"
-    t.index ["User_id"], name: "index_Group_on_User_id"
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "GroupFriend", force: :cascade do |t|
-    t.integer "Friend_id"
-    t.integer "Group_id"
-    t.index ["Friend_id"], name: "index_GroupFriend_on_Friend_id"
-    t.index ["Group_id"], name: "index_GroupFriend_on_Group_id"
+  create_table "user_friends", force: :cascade do |t|
+    t.string   "statud"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "User", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "Fname"
-    t.text     "Lname"
-    t.text     "email",      null: false
-    t.text     "password",   null: false
+    t.string   "Lname"
+    t.string   "email"
+    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
