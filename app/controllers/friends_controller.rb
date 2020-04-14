@@ -1,21 +1,27 @@
 class FriendsController < ApplicationController
 
    def index
-    if params[:search]
-      redirect_to( search_page_path	, alert: "Empty field!") 
-    else  
-      @parameter = params[:search]
-      @user = User.all.where("email LIKE :search", search: @parameter)  
-    end  
-    # if params[:search]
-    #   @user =User.search_by(params[:search]) 
-    #   render search_page_path , @user
-    # end 
+
   end
    
 
-  def search  
+   def search  
+    if params[:search].blank?  
+      redirect_to( "/", alert: "Empty field!") and return
+    else  
+      @parameter = params[:search] 
+      # @users = User.where(" email LIKE :search", search: @parameter).first(1)
+      @user = User.where(" email LIKE :search", search: @parameter).first
 
+      
+      userid=1
+      @friend=Friend.new
+      @friend.id=@user.id
+      @friend.user_id=userid
+      @friend.status="true"
+      @friend.save()
+    
+    end 
   end
  
 

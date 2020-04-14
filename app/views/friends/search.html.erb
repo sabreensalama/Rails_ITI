@@ -1,7 +1,9 @@
-hello search
+<h1>search results:
+<% if @allfriends %>
+   <% @all_friends.each do |friend| %>  
+             <h3>   <%= friend.Fname %>  <%= friend.Lname %></h3><br>  
 
-<% if @user %>
-  <h3>users</h3>
-  <p><%= @user.Fname %>(LAST NAME: <%= @user.Lname %>)</p>
+    <% end %>
+
 <% end %>
     

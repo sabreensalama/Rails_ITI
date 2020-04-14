@@ -1,4 +1,10 @@
-<%= form_tag(search_page_path, method: 'get') do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag("Search", name: nil) %>
+<%= form_tag(search_page_path, :method => "get",   
+    class: 'navbar-form navbar-left') do %>  
+  <div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+    <div class="input-group-btn">  
+        <%= submit_tag("Add",class:"btn btn-success  btn-block") %>
+  
+    </div>  
+  </div>  
 <% end %>
